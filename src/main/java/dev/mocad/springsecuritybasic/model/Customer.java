@@ -1,6 +1,7 @@
 package dev.mocad.springsecuritybasic.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import org.hibernate.annotations.GenericGenerator;
 
 
@@ -12,9 +13,13 @@ public class Customer {
   @GenericGenerator(name = "native")
   private int id;
 
-  @Column(unique = true)
+  @Column(unique = true, nullable = false)
   private String email;
+
+  @Column(nullable = false)
   private String pwd;
+
+  @Column(nullable = false)
   private String role;
 
   public int getId() {
